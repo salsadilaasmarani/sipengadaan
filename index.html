@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SiPengadaan — Sistem Pengadaan Berbasis Framework</title>
+  <meta name="description" content="Platform pengadaan barang terintegrasi berbasis framework custom. Project UAS Pengembangan Aplikasi Web Berbasis Framework 2026."/>
+  <link rel="stylesheet" href="css/style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">Si<span>Pengadaan</span></a>
+      <div class="nav-links">
+        <a href="#fitur">Fitur</a>
+        <a href="#stack">Teknologi</a>
+        <a href="#progress">Progress</a>
+        <a href="#tim">Tim</a>
+        <a href="docs.html">Dokumentasi</a>
+      </div>
+      <div class="nav-right">
+        <span class="nav-badge">UAS 2026 — Kelas B</span>
+        <button class="hamburger" id="hamburger" aria-label="Menu">&#9776;</button>
+      </div>
+    </div>
+    <!-- Mobile menu -->
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#fitur">Fitur</a>
+      <a href="#stack">Teknologi</a>
+      <a href="#progress">Progress</a>
+      <a href="#tim">Tim</a>
+      <a href="docs.html">Dokumentasi</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-left" data-aos="fade-right">
+        <div class="eyebrow">// Project UAS — Pengembangan Aplikasi Web Berbasis Framework</div>
+        <h1>Sistem <span class="accent">Pengadaan</span><br>Berbasis Framework<br>Modern</h1>
+        <p class="hero-desc">
+          Platform sistem informasi pengadaan barang terintegrasi yang dibangun di atas framework custom — mengelola request, approval, vendor, dan laporan dalam satu sistem yang efisien.
+        </p>
+        <div class="hero-buttons">
+          <a href="#fitur" class="btn-primary">Lihat Fitur</a>
+          <a href="docs.html" class="btn-outline">Dokumentasi</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat">
+            <span class="stat-num">6</span>
+            <span class="stat-label">Modul Utama</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat">
+            <span class="stat-num">1</span>
+            <span class="stat-label">Anggota Tim</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat">
+            <span class="stat-num">MVC</span>
+            <span class="stat-label">Arsitektur</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero-right" data-aos="fade-left">
+        <div class="terminal">
+          <div class="term-header">
+            <div class="dot dot-r"></div>
+            <div class="dot dot-y"></div>
+            <div class="dot dot-g"></div>
+            <span class="term-title">bash — sipengadaan</span>
+          </div>
+          <div class="term-body" id="termBody"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FITUR -->
+  <section id="fitur" class="section">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <div class="section-label">// features</div>
+        <h2 class="section-title">Fitur Utama Sistem</h2>
+        <p class="section-sub">Modul-modul yang dikembangkan dalam framework SiPengadaan untuk kebutuhan pengadaan barang secara digital dan terintegrasi.</p>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card" data-aos="fade-up" data-delay="0">
+          <div class="feat-icon">🛒</div>
+          <h3>Purchase Request</h3>
+          <p>Pengajuan kebutuhan barang oleh departemen dengan form terstruktur, validasi otomatis, dan tracking status real-time.</p>
+          <div class="feat-tag">PR Module</div>
+        </div>
+        <div class="feature-card" data-aos="fade-up" data-delay="100">
+          <div class="feat-icon">✅</div>
+          <h3>Approval Workflow</h3>
+          <p>Alur persetujuan bertingkat dari supervisor hingga manajemen dengan notifikasi email dan riwayat lengkap.</p>
+          <div class="feat-tag">Workflow Module</div>
+        </div>
+        <div class="feature-card" data-aos="fade-up" data-delay="200">
+          <div class="feat-icon">🏭</div>
+          <h3>Vendor Management</h3>
+          <p>Database supplier, rating performa vendor, dan perbandingan harga dari beberapa penawaran secara otomatis.</p>
+          <div class="feat-tag">Vendor Module</div>
+        </div>
+        <div class="feature-card" data-aos="fade-up" data-delay="300">
+          <div class="feat-icon">📦</div>
+          <h3>Purchase Order</h3>
+          <p>Generate PO otomatis setelah approval, tracking status pengiriman, dan konfirmasi penerimaan barang.</p>
+          <div class="feat-tag">PO Module</div>
+        </div>
+        <div class="feature-card" data-aos="fade-up" data-delay="400">
+          <div class="feat-icon">📊</div>
+          <h3>Laporan & Analitik</h3>
+          <p>Dashboard pengeluaran interaktif, rekapitulasi per periode, dan ekspor laporan ke format PDF maupun Excel.</p>
+          <div class="feat-tag">Report Module</div>
+        </div>
+        <div class="feature-card" data-aos="fade-up" data-delay="500">
+          <div class="feat-icon">🔐</div>
+          <h3>Role & Permission</h3>
+          <p>Manajemen hak akses berbasis peran: requester, approver, purchasing team, dan admin sistem.</p>
+          <div class="feat-tag">Auth Module</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TECH STACK -->
+  <section id="stack" class="section section-alt">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <div class="section-label">// tech stack</div>
+        <h2 class="section-title">Teknologi yang Digunakan</h2>
+        <p class="section-sub">Framework dibangun dari nol dengan arsitektur MVC yang ringan, modular, dan mudah dikembangkan lebih lanjut.</p>
+      </div>
+      <div class="arch-diagram" data-aos="fade-up">
+        <div class="arch-layer">
+          <div class="arch-label">Presentation Layer</div>
+          <div class="arch-items">
+            <div class="arch-item">HTML5</div>
+            <div class="arch-item">CSS3</div>
+            <div class="arch-item">JavaScript</div>
+            <div class="arch-item">Template Engine</div>
+          </div>
+        </div>
+        <div class="arch-arrow">↓</div>
+        <div class="arch-layer layer-blue">
+          <div class="arch-label">Framework Core</div>
+          <div class="arch-items">
+            <div class="arch-item">Router</div>
+            <div class="arch-item">Controller</div>
+            <div class="arch-item">Model</div>
+            <div class="arch-item">Middleware</div>
+          </div>
+        </div>
+        <div class="arch-arrow">↓</div>
+        <div class="arch-layer">
+          <div class="arch-label">Data Layer</div>
+          <div class="arch-items">
+            <div class="arch-item">MySQL</div>
+            <div class="arch-item">Query Builder</div>
+            <div class="arch-item">ORM Custom</div>
+            <div class="arch-item">Migration</div>
+          </div>
+        </div>
+      </div>
+      <div class="stack-grid">
+        <div class="stack-card" data-aos="fade-up">
+          <div class="stack-icon">🐘</div>
+          <div class="stack-tag">Backend</div>
+          <div class="stack-name">PHP 8.2</div>
+          <div class="stack-desc">Core framework, routing, dan logika bisnis</div>
+        </div>
+        <div class="stack-card" data-aos="fade-up">
+          <div class="stack-icon">🗄️</div>
+          <div class="stack-tag">Database</div>
+          <div class="stack-name">MySQL 8.0</div>
+          <div class="stack-desc">Relational database untuk penyimpanan data</div>
+        </div>
+        <div class="stack-card" data-aos="fade-up">
+          <div class="stack-icon">🎨</div>
+          <div class="stack-tag">Frontend</div>
+          <div class="stack-name">HTML/CSS/JS</div>
+          <div class="stack-desc">Antarmuka pengguna dengan templating engine</div>
+        </div>
+        <div class="stack-card" data-aos="fade-up">
+          <div class="stack-icon">🏗️</div>
+          <div class="stack-tag">Pattern</div>
+          <div class="stack-name">MVC</div>
+          <div class="stack-desc">Arsitektur Model–View–Controller terstruktur</div>
+        </div>
+        <div class="stack-card" data-aos="fade-up">
+          <div class="stack-icon">🔑</div>
+          <div class="stack-tag">Auth</div>
+          <div class="stack-name">Session & JWT</div>
+          <div class="stack-desc">Autentikasi berbasis sesi dan token aman</div>
+        </div>
+        <div class="stack-card" data-aos="fade-up">
+          <div class="stack-icon">🐙</div>
+          <div class="stack-tag">Versioning</div>
+          <div class="stack-name">Git / GitHub</div>
+          <div class="stack-desc">Version control dan kolaborasi tim</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROGRESS -->
+  <section id="progress" class="section">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <div class="section-label">// development progress</div>
+        <h2 class="section-title">Timeline Pengembangan</h2>
+        <p class="section-sub">Tahapan pengerjaan project dari perencanaan hingga presentasi UAS beserta status terkini setiap fase.</p>
+      </div>
+      <div class="timeline" data-aos="fade-up">
+        <div class="tl-item">
+          <div class="tl-left">
+            <div class="tl-dot done">✓</div>
+            <div class="tl-line"></div>
+          </div>
+          <div class="tl-content">
+            <div class="tl-meta">
+              <span class="tl-phase">Fase 1</span>
+              <span class="tl-period">Minggu 1–2</span>
+              <span class="badge-done">Selesai</span>
+            </div>
+            <div class="tl-title">Perencanaan & Analisis Kebutuhan</div>
+            <div class="tl-desc">Identifikasi fitur, perancangan database ERD, wireframe antarmuka, dan pembagian tugas anggota tim.</div>
+            <div class="tl-checklist">
+              <span class="chk done">✓ Analisis kebutuhan sistem</span>
+              <span class="chk done">✓ Perancangan ERD database</span>
+              <span class="chk done">✓ Wireframe UI/UX</span>
+            </div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-left">
+            <div class="tl-dot done">✓</div>
+            <div class="tl-line"></div>
+          </div>
+          <div class="tl-content">
+            <div class="tl-meta">
+              <span class="tl-phase">Fase 2</span>
+              <span class="tl-period">Minggu 3–4</span>
+              <span class="badge-done">Selesai</span>
+            </div>
+            <div class="tl-title">Pengembangan Core Framework</div>
+            <div class="tl-desc">Membangun router, MVC structure, database abstraction layer, dan sistem autentikasi dasar.</div>
+            <div class="tl-checklist">
+              <span class="chk done">✓ Router & controller base</span>
+              <span class="chk done">✓ Database abstraction layer</span>
+              <span class="chk done">✓ Auth & session management</span>
+            </div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-left">
+            <div class="tl-dot active">▶</div>
+            <div class="tl-line"></div>
+          </div>
+          <div class="tl-content">
+            <div class="tl-meta">
+              <span class="tl-phase">Fase 3</span>
+              <span class="tl-period">Minggu 5–7</span>
+              <span class="badge-active">Berjalan</span>
+            </div>
+            <div class="tl-title">Implementasi Modul Purchasing</div>
+            <div class="tl-desc">Pengembangan fitur Purchase Request, Purchase Order, approval workflow, vendor management, dan dashboard laporan.</div>
+            <div class="tl-checklist">
+              <span class="chk done">✓ Modul Purchase Request</span>
+              <span class="chk active">⟳ Modul Approval Workflow</span>
+              <span class="chk">○ Modul Vendor & PO</span>
+            </div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-left">
+            <div class="tl-dot">4</div>
+            <div class="tl-line"></div>
+          </div>
+          <div class="tl-content">
+            <div class="tl-meta">
+              <span class="tl-phase">Fase 4</span>
+              <span class="tl-period">Minggu 8</span>
+              <span class="badge-pending">Pending</span>
+            </div>
+            <div class="tl-title">Testing & Debugging</div>
+            <div class="tl-desc">Unit testing tiap modul, integrasi antar modul, perbaikan bug, optimasi performa, dan dokumentasi teknis.</div>
+            <div class="tl-checklist">
+              <span class="chk">○ Unit testing modul</span>
+              <span class="chk">○ Integration testing</span>
+              <span class="chk">○ Dokumentasi teknis</span>
+            </div>
+          </div>
+        </div>
+        <div class="tl-item last">
+          <div class="tl-left">
+            <div class="tl-dot">5</div>
+          </div>
+          <div class="tl-content">
+            <div class="tl-meta">
+              <span class="tl-phase">Fase 5</span>
+              <span class="tl-period">Minggu 9</span>
+              <span class="badge-pending">Pending</span>
+            </div>
+            <div class="tl-title">Presentasi UAS</div>
+            <div class="tl-desc">Demo sistem lengkap kepada dosen penguji, presentasi laporan akhir, dan pengumpulan dokumentasi pengembangan framework.</div>
+            <div class="tl-checklist">
+              <span class="chk">○ Demo sistem lengkap</span>
+              <span class="chk">○ Laporan akhir</span>
+              <span class="chk">○ Presentasi UAS</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TIM -->
+  <section id="tim" class="section section-alt">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <div class="section-label">// our team</div>
+        <h2 class="section-title">Tim Pengembang</h2>
+        <p class="section-sub">Mahasiswa pengembang project UAS Pengembangan Aplikasi Web Berbasis Framework · Kelas B.</p>
+      </div>
+      <div class="team-grid team-solo">
+        <div class="team-card" data-aos="fade-up">
+          <div class="avatar av1">S</div>
+          <div class="team-name">Salsadillah F A Mamonto</div>
+          <div class="team-role">Full Stack Developer</div>
+          <div class="team-nim">NIM: 20021106134</div>
+          <div class="team-tasks">
+            <span>Backend</span><span>Frontend</span><span>Database</span><span>UI/UX</span>
+          </div>
+        </div>
+      </div>
+      <div class="supervisor-box" data-aos="fade-up">
+        <div class="sup-label">Dosen Pembimbing</div>
+        <div class="sup-name">Heilbert Armando Mapaly, S.Kom, M.Eng</div>
+        <div class="sup-detail">Mata Kuliah: Pengembangan Aplikasi Web Berbasis Framework · Kelas B · Universitas Sam Ratulangi</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-logo">Si<span>Pengadaan</span></div>
+      <p class="footer-desc">Project UAS Pengembangan Aplikasi Web Berbasis Framework · Kelas B · 2026</p>
+      <p class="footer-univ">Universitas Sam Ratulangi · Program Studi Teknik Informatika</p>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="docs.html">Dokumentasi</a>
+        <a href="#tim">Tim</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

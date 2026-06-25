@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dokumentasi — SiPengadaan Framework</title>
+  <link rel="stylesheet" href="css/style.css"/>
+  <link rel="stylesheet" href="css/docs.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+</head>
+<body class="docs-page">
+
+  <!-- NAV -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">Si<span>Pengadaan</span></a>
+      <div class="nav-links">
+        <a href="index.html">← Kembali</a>
+        <a href="#instalasi">Instalasi</a>
+        <a href="#struktur">Struktur</a>
+        <a href="#modul">Modul</a>
+        <a href="#database">Database</a>
+      </div>
+      <div class="nav-right">
+        <span class="nav-badge">Docs</span>
+      </div>
+    </div>
+  </nav>
+
+  <div class="docs-layout">
+    <!-- SIDEBAR -->
+    <aside class="docs-sidebar">
+      <div class="sidebar-section">
+        <div class="sidebar-label">Pengantar</div>
+        <a href="#tentang" class="sidebar-link active">Tentang SiPengadaan</a>
+        <a href="#instalasi" class="sidebar-link">Instalasi</a>
+        <a href="#persyaratan" class="sidebar-link">Persyaratan</a>
+      </div>
+      <div class="sidebar-section">
+        <div class="sidebar-label">Framework</div>
+        <a href="#struktur" class="sidebar-link">Struktur Folder</a>
+        <a href="#routing" class="sidebar-link">Routing</a>
+        <a href="#controller" class="sidebar-link">Controller</a>
+        <a href="#model" class="sidebar-link">Model</a>
+        <a href="#view" class="sidebar-link">View & Template</a>
+      </div>
+      <div class="sidebar-section">
+        <div class="sidebar-label">Modul</div>
+        <a href="#modul-pr" class="sidebar-link">Purchase Request</a>
+        <a href="#modul-approval" class="sidebar-link">Approval Workflow</a>
+        <a href="#modul-vendor" class="sidebar-link">Vendor</a>
+        <a href="#modul-po" class="sidebar-link">Purchase Order</a>
+        <a href="#modul-report" class="sidebar-link">Laporan</a>
+      </div>
+      <div class="sidebar-section">
+        <div class="sidebar-label">Database</div>
+        <a href="#database" class="sidebar-link">Skema Database</a>
+        <a href="#migration" class="sidebar-link">Migration</a>
+      </div>
+    </aside>
+
+    <!-- MAIN DOCS -->
+    <main class="docs-main">
+
+      <section id="tentang" class="doc-section">
+        <div class="doc-eyebrow">Pengantar</div>
+        <h1>Dokumentasi SiPengadaan</h1>
+        <p>SiPengadaan adalah sistem informasi pengadaan barang (purchasing) yang dibangun di atas framework PHP custom dengan pola arsitektur MVC. Project ini dikembangkan sebagai tugas akhir semester (UAS) mata kuliah Pengembangan Aplikasi Web Berbasis Framework.</p>
+        <div class="info-box">
+          <span class="info-icon">ℹ️</span>
+          <div><strong>Versi Framework:</strong> 1.0.0 (Development) &nbsp;·&nbsp; <strong>PHP:</strong> 8.2+ &nbsp;·&nbsp; <strong>MySQL:</strong> 8.0+</div>
+        </div>
+      </section>
+
+      <hr class="doc-divider"/>
+
+      <section id="instalasi" class="doc-section">
+        <div class="doc-eyebrow">Pengantar</div>
+        <h2>Instalasi</h2>
+        <p>Ikuti langkah-langkah berikut untuk menjalankan SiPengadaan di lingkungan lokal:</p>
+
+        <h3>1. Clone Repository</h3>
+        <div class="code-block">
+          <div class="code-header"><span>bash</span><button class="copy-btn" onclick="copyCode(this)">Copy</button></div>
+          <pre><code>git clone https://github.com/username/sipengadaan.git
+cd sipengadaan</code></pre>
+        </div>
+
+        <h3>2. Konfigurasi Database</h3>
+        <p>Salin file konfigurasi dan sesuaikan dengan environment lokal:</p>
+        <div class="code-block">
+          <div class="code-header"><span>bash</span><button class="copy-btn" onclick="copyCode(this)">Copy</button></div>
+          <pre><code>cp config/database.example.php config/database.php</code></pre>
+        </div>
+        <div class="code-block">
+          <div class="code-header"><span>config/database.php</span><button class="copy-btn" onclick="copyCode(this)">Copy</button></div>
+          <pre><code>&lt;?php
+return [
+    'host'     => 'localhost',
+    'port'     => '3306',
+    'database' => 'sipengadaan_db',
+    'username' => 'root',
+    'password' => '',
+    'charset'  => 'utf8mb4',
+];</code></pre>
+        </div>
+
+        <h3>3. Jalankan Migration</h3>
+        <div class="code-block">
+          <div class="code-header"><span>bash</span><button class="copy-btn" onclick="copyCode(this)">Copy</button></div>
+          <pre><code>php sipengadaan migrate
+php sipengadaan seed    # (opsional) isi data dummy</code></pre>
+        </div>
+
+        <h3>4. Jalankan Server</h3>
+        <div class="code-block">
+          <div class="code-header"><span>bash</span><button class="copy-btn" onclick="copyCode(this)">Copy</button></div>
+          <pre><code>php sipengadaan serve
+# Server berjalan di http://localhost:8000</code></pre>
+        </div>
+      </section>
+
+      <hr class="doc-divider"/>
+
+      <section id="persyaratan" class="doc-section">
+        <h2>Persyaratan Sistem</h2>
+        <table class="doc-table">
+          <thead>
+            <tr><th>Komponen</th><th>Versi Minimum</th><th>Keterangan</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>PHP</td><td>8.2</td><td>Diperlukan untuk fitur enum dan readonly properties</td></tr>
+            <tr><td>MySQL</td><td>8.0</td><td>Atau MariaDB 10.6+</td></tr>
+            <tr><td>Composer</td><td>2.0</td><td>Manajemen dependensi PHP</td></tr>
+            <tr><td>Web Server</td><td>—</td><td>Apache / Nginx / PHP built-in</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <hr class="doc-divider"/>
+
+      <section id="struktur" class="doc-section">
+        <div class="doc-eyebrow">Framework</div>
+        <h2>Struktur Folder</h2>
+        <p>Struktur direktori project mengikuti konvensi framework MVC yang terorganisir:</p>
+        <div class="code-block">
+          <div class="code-header"><span>struktur folder</span></div>
+          <pre><code>sipengadaan/
+├── app/
+│   ├── Controllers/       # Controller untuk setiap fitur
+│   │   ├── AuthController.php
+│   │   ├── PurchaseRequestController.php
+│   │   ├── ApprovalController.php
+│   │   ├── VendorController.php
+│   │   └── ReportController.php
+│   ├── Models/            # Model dan akses database
+│   │   ├── User.php
+│   │   ├── PurchaseRequest.php
+│   │   ├── PurchaseOrder.php
+│   │   └── Vendor.php
+│   └── Middlewares/       # Filter request
+│       ├── AuthMiddleware.php
+│       └── RoleMiddleware.php
+├── core/                  # Inti framework
+│   ├── Router.php
+│   ├── Controller.php
+│   ├── Model.php
+│   ├── Database.php
+│   └── Application.php
+├── views/                 # Template HTML
+│   ├── layouts/
+│   │   └── main.php
+│   ├── auth/
+│   ├── purchasing/
+│   ├── vendor/
+│   └── report/
+├── config/
+│   ├── app.php
+│   ├── database.php
+│   └── routes.php
+├── public/               # Entry point (index.php)
+├── migrations/           # File migrasi database
+└── sipengadaan              # CLI tool</code></pre>
+        </div>
+      </section>
+
+      <hr class="doc-divider"/>
+
+      <section id="routing" class="doc-section">
+        <h2>Routing</h2>
+        <p>Semua route didefinisikan di <code>config/routes.php</code>. Framework mendukung method GET, POST, PUT, dan DELETE.</p>
+        <div class="code-block">
+          <div class="code-header"><span>config/routes.php</span><button class="copy-btn" onclick="copyCode(this)">Copy</button></div>
+          <pre><code>&lt;?php
+use Core\Router;
+
+// Auth
+Router::get('/login',  'AuthController@showLogin');
+Router::post('/login', 'AuthController@login');
+Router::get('/logout', 'AuthController@logout');
+
+// Purchase Request
+Router::get('/pr',           'PurchaseRequestController@index');
+Router::get('/pr/create',    'PurchaseRequestController@create');
+Router::post('/pr',          'PurchaseRequestController@store');
+Router::get('/pr/{id}',      'PurchaseRequestController@show');
+Router::post('/pr/{id}/submit', 'PurchaseRequestController@submit');
+
+// Approval
+Router::get('/approval',        'ApprovalController@index');
+Router::post('/approval/{id}',  'ApprovalController@decide');
+
+// Vendor
+Router::get('/vendor',       'VendorController@index');
+Router::get('/vendor/create','VendorController@create');
+Router::post('/vendor',      'VendorController@store');</code></pre>
+        </div>
+      </section>
+
+      <hr class="doc-divider"/>
+
+      <section id="modul" class="doc-section">
+        <div class="doc-eyebrow">Modul</div>
+        <h2>Daftar Modul</h2>
+        <div class="module-cards">
+          <div class="module-card" id="modul-pr">
+            <div class="module-num">01</div>
+            <h3>Purchase Request (PR)</h3>
+            <p>Modul pertama untuk mengajukan permintaan pengadaan barang. User dengan role <code>requester</code> dapat membuat PR baru, mengisi detail barang yang dibutuhkan, dan mengirimkan untuk disetujui.</p>
+            <div class="module-endpoints">
+              <div class="endpoint"><span class="method get">GET</span> /pr — Daftar semua PR</div>
+              <div class="endpoint"><span class="method post">POST</span> /pr — Buat PR baru</div>
+              <div class="endpoint"><span class="method get">GET</span> /pr/{id} — Detail PR</div>
+              <div class="endpoint"><span class="method post">POST</span> /pr/{id}/submit — Kirim untuk approval</div>
+            </div>
+          </div>
+          <div class="module-card" id="modul-approval">
+            <div class="module-num">02</div>
+            <h3>Approval Workflow</h3>
+            <p>Alur persetujuan bertingkat. Setiap PR yang disubmit akan masuk ke antrian approval sesuai level jabatan. Approver dapat menyetujui atau menolak dengan catatan.</p>
+            <div class="module-endpoints">
+              <div class="endpoint"><span class="method get">GET</span> /approval — Antrian approval</div>
+              <div class="endpoint"><span class="method post">POST</span> /approval/{id} — Setuju / Tolak</div>
+            </div>
+          </div>
+          <div class="module-card" id="modul-vendor">
+            <div class="module-num">03</div>
+            <h3>Vendor Management</h3>
+            <p>Pengelolaan data supplier/vendor. Menyimpan informasi kontak, kategori barang, rating, dan riwayat transaksi untuk perbandingan penawaran.</p>
+            <div class="module-endpoints">
+              <div class="endpoint"><span class="method get">GET</span> /vendor — Daftar vendor</div>
+              <div class="endpoint"><span class="method post">POST</span> /vendor — Tambah vendor</div>
+              <div class="endpoint"><span class="method get">GET</span> /vendor/{id} — Detail vendor</div>
+            </div>
+          </div>
+          <div class="module-card" id="modul-po">
+            <div class="module-num">04</div>
+            <h3>Purchase Order (PO)</h3>
+            <p>Generate PO secara otomatis setelah PR disetujui. Tracking status pengiriman barang dan konfirmasi penerimaan oleh tim gudang.</p>
+            <div class="module-endpoints">
+              <div class="endpoint"><span class="method get">GET</span> /po — Daftar PO</div>
+              <div class="endpoint"><span class="method post">POST</span> /po — Buat PO dari PR</div>
+              <div class="endpoint"><span class="method post">POST</span> /po/{id}/receive — Konfirmasi terima</div>
+            </div>
+          </div>
+          <div class="module-card" id="modul-report">
+            <div class="module-num">05</div>
+            <h3>Laporan & Analitik</h3>
+            <p>Dashboard ringkasan pengeluaran, grafik tren pengadaan per bulan, dan ekspor laporan ke format PDF atau Excel untuk kebutuhan pelaporan manajemen.</p>
+            <div class="module-endpoints">
+              <div class="endpoint"><span class="method get">GET</span> /report/dashboard — Dashboard</div>
+              <div class="endpoint"><span class="method get">GET</span> /report/export?format=pdf — Export PDF</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <hr class="doc-divider"/>
+
+      <section id="database" class="doc-section">
+        <div class="doc-eyebrow">Database</div>
+        <h2>Skema Database</h2>
+        <p>Berikut adalah tabel-tabel utama dalam sistem SiPengadaan beserta relasinya:</p>
+        <div class="code-block">
+          <div class="code-header"><span>SQL — tabel utama</span><button class="copy-btn" onclick="copyCode(this)">Copy</button></div>
+          <pre><code>-- Tabel Users
+CREATE TABLE users (
+  id         INT PRIMARY KEY AUTO_INCREMENT,
+  name       VARCHAR(100) NOT NULL,
+  email      VARCHAR(100) UNIQUE NOT NULL,
+  password   VARCHAR(255) NOT NULL,
+  role       ENUM('admin','requester','approver','purchasing') DEFAULT 'requester',
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Tabel Purchase Request
+CREATE TABLE purchase_requests (
+  id          INT PRIMARY KEY AUTO_INCREMENT,
+  pr_number   VARCHAR(20) UNIQUE NOT NULL,
+  requester_id INT REFERENCES users(id),
+  title       VARCHAR(200) NOT NULL,
+  description TEXT,
+  total_amount DECIMAL(15,2),
+  status      ENUM('draft','pending','approved','rejected','po_created') DEFAULT 'draft',
+  created_at  TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Tabel PR Items
+CREATE TABLE pr_items (
+  id         INT PRIMARY KEY AUTO_INCREMENT,
+  pr_id      INT REFERENCES purchase_requests(id),
+  item_name  VARCHAR(200) NOT NULL,
+  quantity   INT NOT NULL,
+  unit       VARCHAR(50),
+  est_price  DECIMAL(15,2)
+);
+
+-- Tabel Vendor
+CREATE TABLE vendors (
+  id         INT PRIMARY KEY AUTO_INCREMENT,
+  name       VARCHAR(200) NOT NULL,
+  contact    VARCHAR(100),
+  email      VARCHAR(100),
+  phone      VARCHAR(20),
+  address    TEXT,
+  rating     DECIMAL(3,2) DEFAULT 0,
+  is_active  TINYINT(1) DEFAULT 1
+);
+
+-- Tabel Purchase Order
+CREATE TABLE purchase_orders (
+  id         INT PRIMARY KEY AUTO_INCREMENT,
+  po_number  VARCHAR(20) UNIQUE NOT NULL,
+  pr_id      INT REFERENCES purchase_requests(id),
+  vendor_id  INT REFERENCES vendors(id),
+  total      DECIMAL(15,2),
+  status     ENUM('created','sent','received','cancelled') DEFAULT 'created',
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);</code></pre>
+        </div>
+
+        <section id="migration" class="doc-section" style="padding:0;margin-top:2rem">
+          <h3>Menjalankan Migration</h3>
+          <p>Framework menyediakan CLI tool untuk mengelola migrasi database:</p>
+          <div class="code-block">
+            <div class="code-header"><span>bash</span><button class="copy-btn" onclick="copyCode(this)">Copy</button></div>
+            <pre><code># Jalankan semua migrasi
+php sipengadaan migrate
+
+# Rollback migrasi terakhir
+php sipengadaan migrate:rollback
+
+# Reset semua tabel dan jalankan ulang
+php sipengadaan migrate:fresh
+
+# Isi data dummy
+php sipengadaan seed</code></pre>
+          </div>
+        </section>
+      </section>
+
+    </main>
+  </div>
+
+  <footer style="border-top:1px solid var(--border);padding:1.5rem 2rem;text-align:center;color:var(--text-muted);font-size:13px">
+    SiPengadaan Framework · <span style="color:var(--blue)">Dokumentasi v1.0</span> · Project UAS 2026
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/docs.js"></script>
+</body>
+</html>
